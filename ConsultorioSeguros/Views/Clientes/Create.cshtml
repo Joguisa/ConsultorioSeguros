@@ -1,0 +1,43 @@
+﻿@model ConsultorioSeguros.Models.Cliente
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="d-flex align-items-center">Añadir Cliente</h1>
+
+<hr />
+<div class="d-flex justify-content-center align-items-center">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="Cedula" class="control-label"></label>
+            <input asp-for="Cedula" class="form-control" />
+            <span asp-validation-for="Cedula" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="NombreCliente" class="control-label"></label>
+            <input asp-for="NombreCliente" class="form-control" />
+            <span asp-validation-for="NombreCliente" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Telefono" class="control-label"></label>
+            <input asp-for="Telefono" class="form-control" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Edad" class="control-label"></label>
+            <input asp-for="Edad" class="form-control" />
+            <span asp-validation-for="Edad" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+            <a class="btn btn-info" asp-action="Index">Regresar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

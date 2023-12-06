@@ -1,0 +1,41 @@
+﻿@model ConsultorioSeguros.Models.SegurosCliente
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Eliminar Cliente Asegurado</h1>
+
+<h3>¿Estás seguro que quieres eliminar el cliente @Html.DisplayFor(model => model.Cliente.NombreCliente)?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente.Cedula)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente.Cedula)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente.NombreCliente)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente.NombreCliente)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seguro.NombreSeguro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seguro.NombreSeguro)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-3">
+            <button type="submit" class="btn btn-danger"> Eliminar</button>
+            <a class="btn btn-warning" asp-action="Index"> Cancelar</a>
+        </div>
+    </form>
+</div>

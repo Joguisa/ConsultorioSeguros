@@ -1,0 +1,38 @@
+﻿@model ConsultorioSeguros.Models.SegurosCliente
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Asignar Seguros a Clientes</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="ClienteId" class="control-label">Cliente</label>
+                <select asp-for="ClienteId" class="form-select" asp-items="ViewBag.ClienteId"></select>
+                <span asp-validation-for="ClienteId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="SeguroId" class="control-label">Seguro</label>
+                <select asp-for="SeguroId" class="form-select" asp-items="ViewBag.SeguroId"></select>
+                <span asp-validation-for="SeguroId" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+                <a class="btn btn-info" asp-action="Index"> Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

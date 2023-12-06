@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ConsultorioSeguros.Models.Seguro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Seguros</h1>
+
+<p class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a class="btn btn-primary" asp-action="Create"> Agregar Seguro</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreSeguro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoSeguro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SumaAsegurada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prima)
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreSeguro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoSeguro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SumaAsegurada)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prima)
+                </td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id"><i class="bi bi-pencil"></i></a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id"><i class="bi bi-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
